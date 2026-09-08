@@ -34,6 +34,7 @@ http://127.0.0.1:8000/docs
 - `GET /health` — checks whether the API is running
 - `GET /tickets` — returns all analyzed tickets
 - `GET /tickets/{ticket_id}` — returns one analyzed ticket
+- `POST /analyze-ticket` — analyzes a new ticket sent to the API
 
 ## Run Tests
 

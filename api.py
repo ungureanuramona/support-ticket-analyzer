@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 from ticket_analyzer import analyze_ticket, load_tickets
 
@@ -8,8 +9,13 @@ from ticket_analyzer import analyze_ticket, load_tickets
 app = FastAPI(
     title="Support Ticket Analyzer API",
     description="An API that analyzes support tickets and assigns a category and priority.",
-    version="1.0.0",
+    version="1.1.0",
 )
+
+
+class TicketRequest(BaseModel):
+    title: str
+    description: str
 
 
 def get_analyzed_tickets():
@@ -39,3 +45,14 @@ def get_ticket(ticket_id: str):
             return ticket
 
     raise HTTPException(status_code=404, detail="Ticket not found")
+
+
+@app.post("/analyze-ticket")
+def analyze_new_ticket(ticket: TicketRequest):
+    ticket_to_analyze = {
+        "id": "NEW-TICKET",
+        "title": ticket.title,
+        "description": ticket.description,
+    }
+
+    return analyze_ticket(ticket_to_analyze)
