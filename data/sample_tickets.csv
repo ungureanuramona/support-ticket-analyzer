@@ -1,0 +1,5 @@
+id,title,description
+SUP-001,Production login outage,"All users cannot log in to the production application."
+SUP-002,API integration returns an error,"Our payment API receives a 500 error when creating orders."
+SUP-003,Incorrect data in report,"The monthly report shows duplicate customer records."
+SUP-004,Password reset request,"A user needs help resetting their password."

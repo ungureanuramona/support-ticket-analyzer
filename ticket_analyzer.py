@@ -1,20 +1,10 @@
-tickets = [
-    {
-        "id": "SUP-001",
-        "title": "Production login outage",
-        "description": "All users cannot log in to the production application.",
-    },
-    {
-        "id": "SUP-002",
-        "title": "API integration returns an error",
-        "description": "Our payment API receives a 500 error when creating orders.",
-    },
-    {
-        "id": "SUP-003",
-        "title": "Incorrect data in report",
-        "description": "The monthly report shows duplicate customer records.",
-    },
-]
+import csv
+from pathlib import Path
+
+
+def load_tickets(file_path):
+    with open(file_path, newline="", encoding="utf-8") as file:
+        return list(csv.DictReader(file))
 
 
 def classify_category(text):
@@ -63,6 +53,10 @@ def analyze_ticket(ticket):
 
 
 def main():
+    project_folder = Path(__file__).parent
+    tickets_file = project_folder / "data" / "sample_tickets.csv"
+    tickets = load_tickets(tickets_file)
+
     print("--- Support Ticket Analysis ---")
 
     for ticket in tickets:

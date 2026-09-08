@@ -1,9 +1,10 @@
 # Support Ticket Analyzer
 
-A Python command-line application that analyzes sample support tickets and assigns a category and priority.
+A Python command-line application that analyzes support tickets from a CSV file and assigns a category and priority.
 
 ## Features
 
+- Loads support tickets from a CSV file
 - Categorizes tickets as Authentication, API Integration, Data Issue, or Other
 - Assigns a priority: Critical, High, or Normal
 - Uses transparent rule-based classification
@@ -13,3 +14,20 @@ A Python command-line application that analyzes sample support tickets and assig
 
 ```bash
 py ticket_analyzer.py
+```
+
+## Project Structure
+
+```text
+support-ticket-analyzer/
+├── data/
+│   └── sample_tickets.csv
+├── ticket_analyzer.py
+└── README.md
+```
+
+## Built With
+
+- Python 3.13
+- Git
+- GitHub
