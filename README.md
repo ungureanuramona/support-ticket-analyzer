@@ -8,7 +8,8 @@ A Python application and FastAPI service that analyzes support tickets from a CS
 - Categorizes tickets as Authentication, API Integration, Data Issue, or Other
 - Assigns a priority: Critical, High, or Normal
 - Provides a FastAPI endpoint for ticket analysis
-- Includes automated tests
+- Includes automated tests for the application and API
+- Runs locally or in a Docker container
 - Uses transparent rule-based classification
 
 ## Run Locally
@@ -24,6 +25,26 @@ py ticket_analyzer.py
 ```
 
 Open the interactive API documentation at:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Run with Docker
+
+Build the image:
+
+```bash
+docker build -t support-ticket-analyzer .
+```
+
+Run the container:
+
+```bash
+docker run --rm -p 8000:8000 support-ticket-analyzer
+```
+
+Then open:
 
 ```text
 http://127.0.0.1:8000/docs
@@ -50,8 +71,10 @@ support-ticket-analyzer/
 │   └── sample_tickets.csv
 ├── tests/
 │   └── test_ticket_analyzer.py
+├── .dockerignore
 ├── .gitignore
 ├── api.py
+├── Dockerfile
 ├── requirements.txt
 ├── ticket_analyzer.py
 └── README.md
@@ -61,5 +84,6 @@ support-ticket-analyzer/
 
 - Python 3.13
 - FastAPI
+- Docker
 - Git
 - GitHub
