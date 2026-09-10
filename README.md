@@ -2,6 +2,14 @@
 
 A Python application and FastAPI service that analyzes support tickets from a CSV file and assigns a category and priority.
 
+## Live API
+
+Try the interactive API documentation here:
+
+[Support Ticket Analyzer API](https://support-ticket-analyzer-s8wc.onrender.com/docs)
+
+The free deployment may take up to a minute to start after inactivity.
+
 ## Features
 
 - Loads support tickets from a CSV file
@@ -87,3 +95,4 @@ support-ticket-analyzer/
 - Docker
 - Git
 - GitHub
+- Render
